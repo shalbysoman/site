@@ -1,0 +1,48 @@
+{% extends 'Register/base.html' %}
+{% load static %}
+
+{% block content %}
+<br>
+<div class="row justify-content-center ">
+
+    <div class="col-md-4 ">
+
+        <div class="card shadow-lg ">
+            <div class="card-body ">
+                <form method="POST" enctype="multipart/form-data" action="">
+
+<h1>Update book</h1>
+
+    {% csrf_token %}
+    <br>
+    <div class="mb-3">
+    <label class="form-label font-weight-bold">Username : </label>
+    <input type="text" name="username" id="username" placeholder="Enter the username" value="{{user.username}}">
+    </div>
+    <div class="mb-3">
+    <label class="form-label font-weight-bold">Firstname : </label>
+    <input type="text" name="first_name"  id="first_name" placeholder="Enter the firstname" value="{{user.first_name}}">
+        </div>
+            <div class="mb-3">
+    <label class="form-label font-weight-bold">Lastname : </label>
+    <input type="text" name="last_name" id="last_name" placeholder="Enter the lastname" value="{{user.last_name}}">
+                </div>
+                <div class="mb-3">
+    <label class="form-label font-weight-bold">email : </label>
+    <input type="email" name="email"  id="email" placeholder="Enter the email id" value="{{user.email}}">
+                    </div>
+                    <div class="mb-3">
+    <label class="form-label font-weight-bold">password : </label>
+    <input type="password" name="password" id="password" placeholder="Enter your password" value="{{user.password}}">
+                        </div>
+                        <div class="mb-3">
+    <label class="form-label font-weight-bold">confirm password : </label>
+    <input type="password" name="password1" id="password1" placeholder="re-enter password" value="{{user.password1}}">
+    </div>
+    <button type="submit" class="btn btn-success btn-block mb-4"  onclick="showAlert()" >
+                                        submit</button>
+</form>
+
+
+</div></div></div></div>
+{% endblock %}

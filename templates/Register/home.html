@@ -1,0 +1,57 @@
+{% extends 'Register/base.html' %}
+{% load static %}
+
+{% block content %}
+<br>
+
+<a href="{% url 'logout' %}" >Logout</a><br><br><br>
+<center>
+<div class="row justify-content-center ">
+
+
+
+            <div class="card-body ">
+{% for msg in messages %}
+{{msg}}
+{% endfor %}
+
+{% if user.is_authenticated %}
+
+
+
+
+
+{% endif %}
+<p> Hi {{ user.username }},  Welcome to Movie World's Home Page </p>
+            </div></div></center>
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Username</th>
+        <th scope="col">Firstname</th>
+        <th scope="col">Lastname</th>
+        <th scope="col">Email ID</th>
+        <th scope="col">Actions</th>
+
+    </tr>
+     </thead>
+
+    <tbody>
+    <tr>
+        <th scope="row">{{forloop.counter}}</th>
+ <td>{{user.username}}</td>
+    <td>{{user.first_name}}</td>
+    <td>{{user.last_name}}</td>
+    <td>{{user.email}}</td>
+
+
+    <td><a href="{% url 'updateuser' user.pk %}" class="btn btn-warning">Update</a>
+      </tr>
+
+   </tbody>
+</table>
+<br><center>
+<a href="{% url 'showProducts'  %}" class="btn btn-primary" >View Movie World</a>
+</center>
+{% endblock %}

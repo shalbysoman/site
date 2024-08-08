@@ -1,0 +1,47 @@
+{% extends 'Register/base.html' %}
+{% load static %}
+
+{% block content %}
+<br>
+
+
+<center>
+<div class="row justify-content-center ">
+
+
+
+            <div class="card-body ">
+{% for msg in messages %}
+{{msg}}
+{% endfor %}
+
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Username</th>
+        <th scope="col">Firstname</th>
+        <th scope="col">Lastname</th>
+        <th scope="col">Email ID</th>
+        <th scope="col">Password</th>
+
+
+    </tr>
+    </thead>
+    <tbody>
+{% for user in users %}
+        <tr>
+            <th scope="row">{{forloop.counter}}</th>
+            <td>{{users.username}}</td>
+            <td>{{users.first_name}}</td>
+            <td>{{users.last_name}}</td>
+            <td>{{users.email}}</td>
+            <td>{{users.password}}</td>
+
+
+
+{% endfor %}
+    </tbody>
+</table>
+            </div></div></center>
+{% endblock %}

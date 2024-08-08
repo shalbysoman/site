@@ -1,0 +1,42 @@
+{% extends 'Register/base.html' %}
+{% load static %}
+
+{% block content %}
+<br>
+
+{% for msg in messages %}
+{{msg}}
+{% endfor %}
+
+<div class="row justify-content-center ">
+
+    <div class="col-md-4 ">
+
+        <div class="card shadow-lg ">
+            <div class="card-body ">
+
+<br>
+<form action="" method="post">
+{% csrf_token %}
+
+    <div class="mb-3">
+    <label class="form-label font-weight-bold">Username : </label>
+    <input type="text" name="username" id="username" placeholder="Enter the username" required>
+    </div>
+
+
+    <div class="mb-3">
+    <label class="form-label font-weight-bold">password : </label>
+    <input type="password" name="password" id="password" placeholder="Enter your password" required>
+                        </div>
+<div id="liveAlertPlaceholder"></div>
+<button class="btn btn-primary" id="liveAlertBtn">Submit</button>
+
+    <br>
+    Not a registered user? <a href="{% url 'register' %}" class="btn btn-primary">Register Now</a>
+</form>
+            </div>
+        </div>
+    </div>
+
+    {% endblock %}

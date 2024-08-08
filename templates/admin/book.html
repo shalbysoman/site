@@ -1,0 +1,56 @@
+{% extends 'Register/base.html' %}
+{% load static %}
+
+{% block content %}
+<br>
+<div class="row">
+    <div class="col md-3">
+        <h3>Create Profile</h3>
+    </div>
+
+</div>
+
+
+<form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    {{ form.as_p}}
+<input type="submit" value="submit">
+</form>
+
+{% endblock %}
+
+<h1>List Book</h1>
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col"> Username</th>
+        <th scope="col">Firstname</th>
+        <th scope="col">Lastname</th>
+        <th scope="col">Email</th>
+        <th scope="col">Action</th>
+
+        <th scope="col">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for register in registers %}
+    <tr>
+        <th scope="row">{{ forloop.counter }}</th>
+       <td>{{register.username}}</td>
+        <td>{{register.first_name}}</td>
+        <td>{{register.last_name}}</td>
+        <td>{{register.email}}</td>
+
+
+        <td><a href="{% url 'details' register.id %}" class="btn btn-primary">View</a>
+        <a href="{% url 'update' register.id %}" class="btn btn-success">Update</a>
+        <a href="{% url 'delete' register.id %}" class="btn btn-danger">Delete</a>
+        </td>
+
+    </tr>
+
+    {%endfor%}
+    </tbody>
+</table>
